@@ -6,14 +6,13 @@ const mongoose = require('mongoose')
 const PORT = process.env.PORT || 5000
 const app = express()
 
-app.use(bodyParserjson())
+
 
 app.use(cors())
-app.use(bodyParser.urlencoded({
-    extended: false
-}))
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
-const mongoURI = 'mongodb://localhost:27071/mernloginreg'
+const mongoURI = 'mongodb://localhost:27017/mernloginreg'
 
 mongoose.connect(mongoURI, { useNewUrlParser: true })
     .then(() => console.log("MongoDB connection"))
